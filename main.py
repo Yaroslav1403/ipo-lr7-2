@@ -14,7 +14,7 @@ with open(file, 'r', encoding = 'utf-8') as file:
     
     #Проходимся по каждому элементу в content
     for skill in content:
-        #Проверяем, соответствует ли модель элемента "data.skill" 
+        #Проверяем, соответствует ли модель элемента значению "data.skill" 
         if skill.get("model") == "data.skill":
             #Проверяем, совпадает ли код квалификации с введённым кодом пользователя
             if skill["fields"].get("code") == input_qualification_code: 
@@ -29,9 +29,11 @@ with open(file, 'r', encoding = 'utf-8') as file:
             
                 #После того, как нашли код квалификации, снова проходимся по данным, чтобы найти соответствующую специальность
                 for profession in content:
-                    #Проверяем, соответствует ли модель элемента "data.specialty"
+                    #Проверяем, соответствует ли модель элемента значению "data.specialty"
                     if profession.get("model") == "data.specialty":
+                        #Сохраняем код специальности в переменную code_of_specialty
                         code_of_specialty = profession["fields"].get("code")
+                        #Сохраняем первичный ключ квалификации в переменную pk_of_specialty
                         pk_of_specialty = profession["pk"]
                         #Проверяем, совпадает ли идентификатор специальности с первичным ключом текущей специальности
                         if specialty == pk_of_specialty:  
