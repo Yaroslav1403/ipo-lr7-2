@@ -9,7 +9,7 @@ input_qualification_code = str(input("Введите код квалификац
 found_skills = False
 
 #Открываем файл для чтения и его содержимое загружается в переменную content
-with open(file, 'r', encoding = 'utf-8') as file: 
+with open(file, 'r', encoding = 'utf-8') as file:  
     content = json.load(file) 
     
     #Проходимся по каждому элементу в content
